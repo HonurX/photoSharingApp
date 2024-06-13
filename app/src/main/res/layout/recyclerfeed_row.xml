@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/recyclerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kullanici Email:"
+        android:textSize="19sp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+
+
+        >
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/recyclerImageView"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="7dp"
+
+
+        >
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerYorumText"
+        android:textSize="17sp"
+        android:text="Kullanici Yorum"
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+
+        >
+
+    </TextView>
+
+
+</LinearLayout>
