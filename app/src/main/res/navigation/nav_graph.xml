@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.photosharingapp.LogInFragment"
+        android:name="com.photosharingapp.view.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.photosharingapp.feedFragment"
+        android:name="com.photosharingapp.view.feedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/uploadingFragment"
-        android:name="com.photosharingapp.uploadingFragment"
+        android:name="com.photosharingapp.view.uploadingFragment"
         android:label="fragment_uploading"
         tools:layout="@layout/fragment_uploading" >
         <action

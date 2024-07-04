@@ -1,8 +1,6 @@
-package com.photosharingapp
+package com.photosharingapp.view
 
-import android.app.DirectAction
 import android.os.Bundle
-import android.text.Layout.Directions
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
