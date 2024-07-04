@@ -3,19 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/border">
+
     <TextView
         android:id="@+id/recyclerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kullanici Email:"
-        android:textSize="19sp"
-        android:paddingLeft="15dp"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:background="#C777D5"
+        android:paddingLeft="15dp"
+        android:text="Kullanici Email:"
 
 
-        >
+        android:textSize="19sp">
 
     </TextView>
 
@@ -32,18 +35,22 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/recyclerYorumText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerYorumText"
-        android:textSize="17sp"
-        android:text="Kullanici Yorum"
-        android:paddingLeft="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="7dp"
+        android:background="#F1BEBE"
+        android:paddingLeft="15dp"
+        android:text="Kullanici Yorum"
 
-        >
+        android:textSize="21sp">
 
     </TextView>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

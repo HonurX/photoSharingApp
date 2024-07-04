@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uploadingFragment">
+    tools:context=".view.uploadingFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -14,7 +14,7 @@
         android:layout_marginTop="61dp"
         android:layout_marginEnd="8dp"
         android:onClick="gorselSec"
-        android:src="@drawable/addimage"
+        android:src="@drawable/addimage3d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,6 +28,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:textSize="21sp"
         android:hint="add commet to image"
         android:inputType="text"
         android:textAlignment="center"
@@ -37,6 +38,7 @@
 
     <Button
         android:id="@+id/button"
+        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

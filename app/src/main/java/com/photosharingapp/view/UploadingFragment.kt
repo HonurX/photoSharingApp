@@ -1,4 +1,4 @@
-package com.photosharingapp
+package com.photosharingapp.view
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
@@ -6,15 +6,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
-import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import android.provider.MediaStore
-import android.provider.MediaStore.Audio.Media
-import android.provider.MediaStore.Images
-import android.text.style.BulletSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,9 +17,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.photosharingapp.databinding.FragmentLogInBinding
 import com.photosharingapp.databinding.FragmentUploadingBinding
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
@@ -38,7 +31,6 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.storage
 import java.io.IOException
-import java.util.Random
 import java.util.UUID
 
 class uploadingFragment : Fragment() {
@@ -90,12 +82,14 @@ class uploadingFragment : Fragment() {
  fun kaydetButton (view: View) {
      val uuid  = UUID.randomUUID()
      val imageName = "${uuid}.jpg"
+     val storage = Firebase.storage
      val references = storage.reference
     val imageReference =  references.child("images").child(imageName)
      if (secilenGorsel != null) {
-         imageReference.putFile(secilenGorsel!!).addOnSuccessListener { uploadTask->
+         imageReference.putFile(secilenGorsel!!).addOnSuccessListener { taskSnapshot->
 
-             imageReference.downloadUrl.addOnSuccessListener { uri ->
+            val uploadPictureReference = storage.reference.child("images").child(imageName)
+                imageReference.downloadUrl.addOnSuccessListener { uri ->
 
                  if (auth.currentUser != null ) {
                      val dowlandUrl = uri.toString()
@@ -106,9 +100,11 @@ class uploadingFragment : Fragment() {
                      postMap.put("comment" , binding.editTextComment.text.toString())
                      postMap.put("date", Timestamp.now())
 
-                     db.collection("Posts").add(postMap).addOnSuccessListener { documentReference ->
-                         val action = uploadingFragmentDirections.actionUploadingFragmentToFeedFragment()
-                         Navigation.findNavController(view).navigate(action)
+                     db.collection("Posts").add(postMap).addOnCompleteListener {task ->
+                         if (task.isSuccessful && task.isComplete){
+                             val action = uploadingFragmentDirections.actionUploadingFragmentToFeedFragment()
+                             Navigation.findNavController(view).navigate(action)
+                         }
 
                      }.addOnFailureListener {exception ->
 
